@@ -18,7 +18,7 @@ function product_is_wishlisted($retailer, $pid){
     return false;
 }
 
-function lists_get_for_user(){
+function lists_get_for_user($extended=false){
     global $mongo;
 
     $where = array(
@@ -26,7 +26,17 @@ function lists_get_for_user(){
         );
     $lists = $mongo->lists->find($where);
 
-    return array_values(array_map('_map_list', iterator_to_array($lists)));
+    $lists = array_values(array_map('_map_list', iterator_to_array($lists)));
+
+    if ($extended){
+        foreach($lists as &$list){
+            $list_id = $list['id'];
+            $list['products'] = products_find(array('lists'=>$list_id), 10);
+        }
+        unset($list);
+    }
+
+    return $lists;
 }
 
 function list_share($list_id, $user_id){
@@ -55,10 +65,10 @@ function list_remove($id){
 
 }
 
-function products_find($where){
+function products_find($where, $limit=100, $offset=0){
     global $mongo;
 
-    $items = $mongo->products->find($where);
+    $items = $mongo->products->find($where)->skip($offset)->limit($limit);
 
     return array_values(array_map('_map_product', iterator_to_array($items)));
 }
