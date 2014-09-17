@@ -1,6 +1,20 @@
 <?php
 
 function product_is_wishlisted($retailer, $pid){
+    $product = product_get_raw($retailer, $pid);
+
+    $lists = lists_get_for_user();
+    $list_ids = array();
+    foreach($lists as $list){
+        $list_ids[] = $list['id'];
+    }
+    $list_ids[] = 'def_'.current_user();
+
+    if ($product) {
+        $lists = @$product['lists'] ?: array();
+        foreach($list_ids as $list_id) if (array_contains($lists, $list_id)) return true;
+    }
+
     return false;
 }
 
@@ -69,6 +83,16 @@ function product_add_to_list($retailer, $pid, $list_id){
     $where = array('_id'=>$key);
 
     $mongo->products->update($where, $update);
+}
+
+function product_get_raw($retailer, $pid){
+    global $mongo;
+
+    $key = $retailer.':'.$pid;
+
+    $res = $mongo->products->findOne(array('_id'=>$key));
+
+    return $res;
 }
 
 function product_get($retailer, $pid){
