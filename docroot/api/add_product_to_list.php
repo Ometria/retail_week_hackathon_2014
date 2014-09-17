@@ -29,7 +29,7 @@ if (!$product && $product_url && $product_title && $product_image_url && $pid &&
 
 if ($product) {
 
-    if ($remove){
+    if (!$remove){
         product_add_to_list($retailer, $pid, $list_id);
     } else {
         product_remove_from_list($retailer, $pid, $list_id);

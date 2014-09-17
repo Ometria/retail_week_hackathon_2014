@@ -49,7 +49,7 @@ function products_find($where){
     return array_values(array_map('_map_product', iterator_to_array($items)));
 }
 
-function product_remove_from_list(){
+function product_remove_from_list($retailer, $pid, $list_id){
     global $mongo;
 
     $key = $retailer.':'.$pid;
@@ -105,6 +105,8 @@ function _map_product($data){
 function _map_list($row){
     $row['id'] = strval($row['_id']);
     unset($row['_id']);
+    $row['#users'] = count($row['uids']);
+    unset($row['uids']);
     $row = remove_private($row);
     return $row;
 }
