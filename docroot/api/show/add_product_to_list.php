@@ -23,6 +23,9 @@ $product['image'] = 'http://johnlewis.scene7.com/is/image/JohnLewis/233845648alt
 $product['price'] = 239.9;
 $product['url'] = 'http://www.johnlewis.com/asus-c300-chromebook-intel-celeron-2gb-ram-32gb-ssd-13-3-red/p1625271';
 
+$logo = 'http://www.johnlewis.com/assets/header/john-lewis-logo.gif';
+$product['logo'] = image_thumbnail_url($logo, '200x20', 'resize');
+
 $product_image = image_thumbnail_url($product['image'], '500x350', 'resizenp');
 $price_formatted = '£'.sprintf('%01.2f',$product['price']);
 
@@ -39,6 +42,8 @@ if ($product) {
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="/dist/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         .product-title{
         }
@@ -75,7 +80,7 @@ if ($product) {
             <h4 class="product-title"><?php echo esc($product['title']) ?></h4>
             <div class="product-image" style="background: url(<?php echo $product_image ?>) center no-repeat;"></div>
             <h4 class="product-price">
-                <img src="http://www.johnlewis.com/assets/header/john-lewis-logo.gif" style="height:20px;" />
+                <img src="<?php echo $product['logo'] ?>" style="height:20px;" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <?php echo $price_formatted ?>
                 <?php if(@$product['url']): ?>
