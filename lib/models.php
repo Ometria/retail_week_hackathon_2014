@@ -28,12 +28,10 @@ function lists_get_for_user($extended=false){
 
     $lists = array_values(array_map('_map_list', iterator_to_array($lists)));
 
-    if ($extended){
-        foreach($lists as &$list){
-            $list_id = $list['id'];
-            $list['products'] = products_find(array('lists'=>$list_id), 10);
-        }
-        unset($list);
+    foreach($lists as &$list){
+        $list_id = $list['id'];
+        $list['#products'] = products_count(array('lists'=>$list_id));
+        if ($extended) $list['products'] = products_find(array('lists'=>$list_id), 10);
     }
 
     return $lists;
@@ -72,6 +70,13 @@ function products_find($where, $limit=100, $offset=0){
 
     return array_values(array_map('_map_product', iterator_to_array($items)));
 }
+
+function products_count($where){
+    global $mongo;
+
+    return $mongo->products->find($where)->count();
+}
+
 
 function product_remove_from_list($retailer, $pid, $list_id){
     global $mongo;
