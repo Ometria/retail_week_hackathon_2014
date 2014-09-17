@@ -15,7 +15,7 @@ POST
 
 pid=XXX
 retailer=XXX
-list=YYY optional
+list=YYY optional (leave blank for default list)
 remove=true optional
 
 optional product info:
@@ -27,6 +27,9 @@ p_image_url
 
 /api/get_products.php
 ?list=list_id optional
+retailer=XXX optional
+
+(no params for default list)
 
 POST
 /api/create_list.php

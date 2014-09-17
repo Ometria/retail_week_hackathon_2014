@@ -15,6 +15,15 @@ function lists_get_for_user(){
     return array_values(array_map('_map_list', iterator_to_array($lists)));
 }
 
+function list_share($list_id, $user_id){
+    global $mongo;
+
+    $update = array('$addToSet'=>array('uids'=>$user_id));
+    $where = array('_id'=>$list_id);
+
+    $mongo->lists->update($where, $update);
+}
+
 function list_create($title){
     global $mongo;
 
@@ -40,8 +49,18 @@ function products_find($where){
     return array_values(array_map('_map_product', iterator_to_array($items)));
 }
 
+function product_remove_from_list(){
+    global $mongo;
 
-function product_add_to_list($retailer, $pid, $list_id, $add=true){
+    $key = $retailer.':'.$pid;
+
+    $update = array('$pull'=>array('lists'=>$list_id));
+    $where = array('_id'=>$key);
+
+    $mongo->products->update($where, $update);
+}
+
+function product_add_to_list($retailer, $pid, $list_id){
     global $mongo;
 
     $key = $retailer.':'.$pid;
@@ -79,6 +98,7 @@ function product_create($retailer, $pid, $data){
 
 function _map_product($data){
     $ret = remove_private($data);
+    unset($ret['lists']);
     return $ret;
 }
 

@@ -6,6 +6,8 @@ $pid = $_REQUEST['pid'];
 $retailer = $_REQUEST['retailer'];
 $list_id = @$_REQUEST['list'];
 
+$remove = @$_REQUEST['remove']=='true';
+
 if (!$list_id) $list_id='def_'.current_user();
 
 $product_title = @$_REQUEST['p_title'];
@@ -26,7 +28,12 @@ if (!$product && $product_url && $product_title && $product_image_url && $pid &&
 }
 
 if ($product) {
-    product_add_to_list($retailer, $pid, $list_id);
+
+    if ($remove){
+        product_add_to_list($retailer, $pid, $list_id);
+    } else {
+        product_remove_from_list($retailer, $pid, $list_id);
+    }
 
     $ret = array('ok'=>true,'product'=>$product);
     send_json($ret);
