@@ -72,6 +72,7 @@
             </a>
             </li>
             <?php endforeach ?>
+            <li>Add to new list</li>
         </ul>
 
     </div>
