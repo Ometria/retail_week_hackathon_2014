@@ -1,5 +1,8 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+
 require(__DIR__.'/../../lib/id.php');
 require(__DIR__.'/../../lib/misc.php');
 require(__DIR__.'/../../lib/db.php');
