@@ -18,6 +18,9 @@ $product_image_url = @$_REQUEST['p_image'];
 $product = product_get($retailer, $pid);
 
 if (!$product && $product_url && $product_title && $product_image_url && $pid && $product_price){
+
+    $product_price = preg_replace('#[^0-9\.]+#','',$product_price)*1;
+
     $product = product_create($retailer, $pid, array(
         'title'=>$product_title,
         'url'=>$product_url,

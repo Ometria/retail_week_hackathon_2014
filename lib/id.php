@@ -2,6 +2,8 @@
 
 define('COOKIE_KEY', 'listaid');
 
+if (@$_GET['uid']) $_COOKIE[COOKIE_KEY] = $_GET['uid'];
+
 if (!isset($_COOKIE[COOKIE_KEY])) {
     $user_id = md5(uniqid());
     setcookie(COOKIE_KEY, $user_id, time()+3600*360, '/');
