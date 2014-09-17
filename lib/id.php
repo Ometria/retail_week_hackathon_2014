@@ -8,3 +8,7 @@ if (!isset($_COOKIE[COOKIE_KEY])) {
     $_COOKIE[COOKIE_KEY] = $user_id;
 }
 define('USER_ID', $_COOKIE[COOKIE_KEY]);
+
+function current_user(){
+    return USER_ID;
+}

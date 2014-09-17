@@ -2,14 +2,16 @@
 
 require('_init.php');
 
-$pid = $_GET['pid'];
-$retailer = $_GET['retailer'];
-$list_id = @$_GET['list'];
+$pid = $_REQUEST['pid'];
+$retailer = $_REQUEST['retailer'];
+$list_id = @$_REQUEST['list'];
 
-$product_title = @$_GET['p_title'];
-$product_url = @$_GET['p_url'];
-$product_price = @$_GET['p_price'];
-$product_image_url = @$_GET['p_image'];
+if (!$list_id) $list_id='def_'.current_user();
+
+$product_title = @$_REQUEST['p_title'];
+$product_url = @$_REQUEST['p_url'];
+$product_price = @$_REQUEST['p_price'];
+$product_image_url = @$_REQUEST['p_image'];
 
 $product = product_get($retailer, $pid);
 

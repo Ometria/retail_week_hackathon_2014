@@ -11,7 +11,7 @@ http://hackathon.random.ometria.com/api/check_product.php?retailer=johnlewis&pid
 /api/get_lists.php
 
 POST
-/api/list_product.php
+/api/add_product_to_list.php
 
 pid=XXX
 retailer=XXX
@@ -24,6 +24,9 @@ p_url
 p_price
 p_image_url
 
+
+/api/get_products.php
+?list=list_id optional
 
 POST
 /api/create_list.php

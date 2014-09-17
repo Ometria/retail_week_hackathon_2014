@@ -2,4 +2,8 @@
 
 require('_init.php');
 
-echo USER_ID;
+//$lists = lists_get_for_user();
+
+$res = products_find(array('retailer'=>'johnlewis'));
+
+print_r($res);
