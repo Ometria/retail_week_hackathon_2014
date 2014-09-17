@@ -1,5 +1,31 @@
 <?php
 
+
+function user_get_current(){
+    global $mongo;
+
+    $item = $mongo->users->findOne(array('_id'=>current_user()));
+
+    if ($item){
+        $item = _map_user($item);
+        $item['exists']=true;
+    } else {
+        $item = array('exists'=>false);
+    }
+
+    return $item;
+}
+
+function user_friends($offset=0, $limit=100){
+    global $mongo;
+
+    $items = $mongo->users->find(array('_id'=>array('$ne'=>current_user())))->skip($offset)->limit($limit);
+
+    return array_values(array_map('_map_user', iterator_to_array($items)));
+}
+
+
+
 function product_is_wishlisted($retailer, $pid){
     $product = product_get_raw($retailer, $pid);
 
@@ -149,6 +175,15 @@ function _map_list($row){
     $row = remove_private($row);
     return $row;
 }
+
+function _map_user($row){
+    $row['id'] = strval($row['_id']);
+    $row['image'] = image_thumbnail_url($row['image'], 50,50);
+    $row = remove_private($row);
+    return $row;
+}
+
+
 
 function remove_private($data){
     $ret = array();
