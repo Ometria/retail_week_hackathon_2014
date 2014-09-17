@@ -5,6 +5,10 @@ require('../_init.php');
 $pid = $_REQUEST['pid'];
 $retailer = $_REQUEST['retailer'];
 
+
+$list_id = @$_REQUEST['list'];
+if (!$list_id) $list_id='def_'.current_user();
+
 $product_title = @$_REQUEST['p_title'];
 $product_url = @$_REQUEST['p_url'];
 $product_price = @$_REQUEST['p_price'];
@@ -40,13 +44,33 @@ $product['logo'] = image_thumbnail_url($logo, '200x20', 'resize');
 $product_image = image_thumbnail_url(@$product['image_url'], '320x300', 'resizenp');
 $price_formatted = '£'.sprintf('%01.2f',$product['price']);
 
-$data = array(
-    'product'=>$product,
-    'product_image'=>$product_image,
-    'price_formatted'=>$price_formatted
-    );
+$lists = lists_get_for_user(false);
+
+
+
 
 if ($product) {
+
+    $list_ids = product_get_list_ids($retailer, $pid);
+
+    if ($list_id) {
+        if (array_contains($list_ids, $list_id)){
+            product_remove_from_list($retailer, $pid, $list_id);
+        } else {
+            product_add_to_list($retailer, $pid, $list_id);
+        }
+    }
+
+    $data = array(
+        'product'=>$product,
+        'product_image'=>$product_image,
+        'price_formatted'=>$price_formatted,
+        'lists'=>$lists,
+        'pid'=>$pid,
+        'retailer'=>$retailer,
+        'list_ids'=> $list_ids
+        );
+
     show_template('add_product_popup', $data);
 } else {
     die('Bums!');

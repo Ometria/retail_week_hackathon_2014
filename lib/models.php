@@ -25,6 +25,11 @@ function user_friends($offset=0, $limit=100){
 }
 
 
+function product_get_list_ids($retailer, $pid){
+    $product = product_get_raw($retailer, $pid);
+    return @$product['lists']?:array();
+}
+
 
 function product_is_wishlisted($retailer, $pid){
     $product = product_get_raw($retailer, $pid);

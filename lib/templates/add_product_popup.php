@@ -28,6 +28,15 @@
             width: 100%;
             padding: 8px;
         }
+        .lists a{
+            display:block;
+        }
+        .lists a:hover{
+            text-decoration: none;
+        }
+        .lists span{
+            padding-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -53,8 +62,16 @@
         </div>
 
         <ul class="lists">
-            <li>List 1</li>
-            <li>List 2</li>
+            <?php foreach($lists as $list): ?>
+            <li>
+            <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list_id=<?php echo $list['id'] ?>">
+                <?php if(array_contains($list_ids, $list['id'])): ?>
+                    <span>✔ </span>
+                <?php endif ?>
+                <?php echo esc($list['title'] ) ?>
+            </a>
+            </li>
+            <?php endforeach ?>
         </ul>
 
     </div>
