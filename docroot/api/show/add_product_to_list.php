@@ -72,15 +72,15 @@ if ($product) {
         </div>
 
         <div>
-            <h4 class="product-title"><?= esc($product['title']) ?></h4>
-            <div class="product-image" style="background: url(<?= $product_image ?>) center no-repeat;"></div>
+            <h4 class="product-title"><?php echo esc($product['title']) ?></h4>
+            <div class="product-image" style="background: url(<?php echo $product_image ?>) center no-repeat;"></div>
             <h4 class="product-price">
                 <img src="http://www.johnlewis.com/assets/header/john-lewis-logo.gif" style="height:20px;" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <?= $price_formatted ?>
+                <?php echo $price_formatted ?>
                 <?php if(@$product['url']): ?>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" href="<?= $product['url'] ?>" target="_blank">Shop now &raquo;</a>
+                <a class="btn btn-primary" href="<?php echo $product['url'] ?>" target="_blank">Shop now &raquo;</a>
                 <?php endif ?>
             </h4>
         </div>
