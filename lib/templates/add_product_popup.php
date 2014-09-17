@@ -64,7 +64,7 @@
         <ul class="lists">
             <?php foreach($lists as $list): ?>
             <li>
-            <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list_id=<?php echo $list['id'] ?>">
+            <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>">
                 <?php if(array_contains($list_ids, $list['id'])): ?>
                     <span>✔ </span>
                 <?php endif ?>

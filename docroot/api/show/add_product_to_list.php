@@ -55,10 +55,11 @@ if ($product) {
 
     if ($list_id) {
         if (array_contains($list_ids, $list_id)){
-            product_remove_from_list($retailer, $pid, $list_id);
+            if (isset($_GET['list_id'])) product_remove_from_list($retailer, $pid, $list_id);
         } else {
             product_add_to_list($retailer, $pid, $list_id);
         }
+        $list_ids = product_get_list_ids($retailer, $pid);
     }
 
     $data = array(
