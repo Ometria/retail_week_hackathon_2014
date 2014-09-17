@@ -1,0 +1,12 @@
+/*Custom hackathon extension styles*/
+.add-to-wish-list {
+  background-image: url('http://localhost:8080/extension/images/icon.png');
+  -webkit-transition: background-image 0.4s ease-in-out;
+  -moz-transition: background-image 0.4s ease-in-out;
+  -ms-transition: background-image 0.4s ease-in-out;
+  -o-transition: background-image 0.4s ease-in-out;
+  transition: background-image 0.4s ease-in-out;
+}
+.add-to-wish-list.active {
+  background-image: url('http://localhost:8080/extension/images/icon_active.png');
+}
