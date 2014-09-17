@@ -178,7 +178,7 @@ function _map_list($row){
 
 function _map_user($row){
     $row['id'] = strval($row['_id']);
-    $row['image'] = image_thumbnail_url($row['image'], 50,50);
+    $row['image'] = image_thumbnail_url($row['image'], '50x50', 'crop');
     $row = remove_private($row);
     return $row;
 }
