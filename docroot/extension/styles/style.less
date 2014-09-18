@@ -1,16 +1,58 @@
+// Import core styles
+@import 'popover.less';
+
 /*Custom hackathon extension styles*/
 
 // Apply custom image to add-to-wish-list icon
 .add-to-wish-list {
-  background-image: url('http://localhost:8080/extension/images/icon.png');
+  visibility: hidden;
+  background-image: none;
+  
+  background-position-y: top;
+  font-size: 15px;
+  padding-top: 2px;
 
-  -webkit-transition: background-image 0.4s ease-in-out;
-  -moz-transition: background-image 0.4s ease-in-out;
-  -ms-transition: background-image 0.4s ease-in-out;
-  -o-transition: background-image 0.4s ease-in-out;
-  transition: background-image 0.4s ease-in-out;
+  -webkit-transition: visibility 0.4s ease-in-out;
+  -moz-transition: visibility 0.4s ease-in-out;
+  -ms-transition: visibility 0.4s ease-in-out;
+  -o-transition: visibility 0.4s ease-in-out;
+  transition: visibility 0.4s ease-in-out;
 
-  &.active {
-    background-image: url('http://localhost:8080/extension/images/icon_active.png');    
+    .stash, .stashed {
+      display: none;
+    }
+
+  &.loaded {
+    visibility: visible !important;
+
+
+    background-image: url('http://localhost:8080/extension/images/icon.png');
+
+    -webkit-transition: background-image 0.4s ease-in-out;
+    -moz-transition: background-image 0.4s ease-in-out;
+    -ms-transition: background-image 0.4s ease-in-out;
+    -o-transition: background-image 0.4s ease-in-out;
+    transition: background-image 0.4s ease-in-out;
+
+    .stash {
+      display: inline !important;
+    }
+
+    .stashed {
+      color: #e86262;
+      display: none !important;
+    }
+
+    &.active {
+      background-image: url('http://localhost:8080/extension/images/icon_active.png');    
+
+      .stash {
+        display: none !important;
+      }
+
+      .stashed {
+        display: inline !important;
+      }
+    }
   }
 }

@@ -19,7 +19,6 @@ grunt.initConfig({
     },
     css: {
       src: [
-        'bower_components/css-modal/build/modal.css', 
         'styles/style.css'
       ],
       dest: 'extension.css',

@@ -1,10 +1,10 @@
 // Only do anything if jQuery isn't defined
-if (typeof jQuery == 'undefined') {
+if (true /*typeof jQuery == 'undefined'*/) {
 
-  if (typeof $ == 'function') {
-    // warning, global var
-    thisPageUsingOtherJSLibrary = true;
-  }
+  // if (typeof $ == 'function') {
+  //   // warning, global var
+  //   thisPageUsingOtherJSLibrary = true;
+  // }
   
   function getScript(url, success) {
   
@@ -35,48 +35,51 @@ if (typeof jQuery == 'undefined') {
   
   }
   
-  getScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', function() {
-  
+  getScript('http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', function() {
+  console.log('Loading jQuery');
     if (typeof jQuery=='undefined') {
     
       // Super failsafe - still somehow failed...
     
     } else {
     
-      // jQuery loaded! Make sure to use .noConflict just in case
-      fancyCode();
+    //   // jQuery loaded! Make sure to use .noConflict just in case
+    //   // fancyCode();
       
-      if (thisPageUsingOtherJSLibrary) {
+    //   if (thisPageUsingOtherJSLibrary) {
 
-        // Run your jQuery Code
+    //     // Run your jQuery Code
 
-      } else {
+    //   } else {
 
-        // Use .noConflict(), then run your jQuery Code
+    //     // Use .noConflict(), then run your jQuery Code
 
-      }
-    
+    //   }
+      hackIt();
     }
   
   });
   
 } else { // jQuery was already loaded
-  
-  // Load CSS file
-  function loadStyles(){
-    console.log('Load Style Files');
-    var link = document.createElement( "link" );
+  hackIt();
+}
 
-    link.href = "http://localhost:8080/extension/extension.css";
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.media = "screen,print";
+// Load CSS file
+function loadResources(){
+  /*
+  * Load Style File
+  */
+  var link = document.createElement( "link" );
 
-    document.getElementsByTagName( "head" )[0].appendChild( link );
-  }
+  link.href = "http://localhost:8080/extension/extension.css";
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  link.media = "screen,print";
 
-  loadStyles();
+  document.getElementsByTagName( "head" )[0].appendChild( link );
+}
 
+loadResources();
+
+function hackIt()  {
   var hack = {};
-
-

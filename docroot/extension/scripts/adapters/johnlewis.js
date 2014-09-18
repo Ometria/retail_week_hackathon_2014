@@ -26,12 +26,12 @@ if (window.location.host === 'www.johnlewis.com') {
 
     // apply tag to product listing
     applyTag: function(){
-      var tag = $('<a class="add-to-wish-list">Stash It!</button>');
+      hack.tag = $('<a class="add-to-wish-list" href="#modal-show"><span class="stashed">Stashed!</span><span class="stash">Click to Stash!</span></button>');
 
-      tag.click({params: hack.adapter.productProperties()}, hack.lib.api.stash);
+      hack.tag.click(hack.lib.button.stash);
 
       // Locate the wishlist tag on the product page
-      $('.wish-list-links-wrapper').html(tag);
+      $('.wish-list-links-wrapper').html(hack.tag);
     },
 
     productId: function(){
@@ -82,8 +82,8 @@ if (window.location.host === 'www.johnlewis.com') {
       };
     },
 
-    tagStatus: function(data){
-      console.log('data from tag status', data);
+    tagStatus: function(status){
+      hack.tag.toggleClass('active', status);
     }
   };
 
