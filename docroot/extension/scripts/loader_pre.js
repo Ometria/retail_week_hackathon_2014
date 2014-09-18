@@ -71,7 +71,7 @@ function loadResources(){
   */
   var link = document.createElement( "link" );
 
-  link.href = "http://localhost:8080/extension/extension.css";
+  link.href = "http://hackathon.random.ometria.com/extension/extension.css";
   link.type = "text/css";
   link.rel = "stylesheet";
   link.media = "screen,print";
