@@ -1,28 +1,26 @@
 <div id="productModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">{{product.title}}</h4>
-      </div>
       <div class="modal-body">
+        <h2>{{product.title}}</h2>
+
         <div class="content">
           <span class="metric">
             <i class="glyphicon glyphicon-calendar"></i> 17 Setember 2014
           </span>
           <span class="metric">
-          {{#if retail}}
+          {{#if product.retail}}
             <i class="glyphicon glyphicon-shopping-cart"></i> In Store
           {{else}}
             <i class="glyphicon glyphicon-globe"></i> johnlewis.com/
           {{/if}}
           </span>
           <span class="metric">
-            <i class="glyphicon glyphicon-calendar"></i> £{{product.price}}
+            £{{product.price}}
           </span>
 
-{{!--           <img src="{{product.image_url}}" alt="">
- --}}
+          <img src="{{product.image_url}}" alt="" class="product-image">
+
         </div>
         <div class="right-section">
           <img src="/static/images/map.png" alt="" class="map">

@@ -55,12 +55,17 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
     };
 
     this.triggerModal = function(el){
-      var i = $(el).attr('data-index');
-      console.log(this.products[i])
-      var modal = $(this.productModal({product: this.products[i]}));
+      var i = $(el).attr('data-index'),
+          product = this.products[i];
+
+      var modal = $(this.productModal({product: product}));
       $('body #productModal').remove();
       $('body').append(modal);
+
       $('#productModal').modal();
+      $('#productModal').on('click', '.btn-primary', function(){
+        window.location.href = product.url;
+      });
     };
 
   });

@@ -6273,12 +6273,8 @@ nav.navbar a.navbar-brand {
 #productModal .modal-body {
   overflow: auto;
 }
-#productModal .modal-body .picture {
-  width: 25%;
-  float: left;
-}
-#productModal .modal-body .picture img {
-  width: 100%;
+#productModal .modal-body h2 {
+  font-weight: 100;
 }
 #productModal .modal-body .content {
   width: 65%;
@@ -6287,11 +6283,22 @@ nav.navbar a.navbar-brand {
 #productModal .modal-body .content ul {
   list-style: none;
 }
+#productModal .modal-body .content img.product-image {
+  width: 50%;
+  display: block;
+  margin: 0px auto;
+}
 #productModal .modal-body .content .metric {
   display: inline-block;
   color: #777777;
-  width: 150px;
-  text-align: center;
+  width: 175px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  margin-left: 3px;
+}
+#productModal .modal-body .content .metric i {
+  color: #555555;
+  margin-right: 6px;
 }
 #productModal .modal-body .right-section {
   width: 30%;
@@ -6301,11 +6308,11 @@ nav.navbar a.navbar-brand {
 #productModal .modal-body .right-section img.map {
   width: 250px;
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 30px auto;
   border: 10px solid #fbfbfb;
 }
 #productModal .modal-body .right-section button {
-  width: 80%;
+  width: 75%;
   margin: 10px auto;
   display: block;
 }
