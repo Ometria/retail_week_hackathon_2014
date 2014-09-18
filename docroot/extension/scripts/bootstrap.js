@@ -6,12 +6,9 @@ hack.bootstrap = function(){
   // Apply the tags!
   hack.adapter.applyTag();
 
-  // Get iFrame URL
-  var frameSrc = hack.lib.api.stash(hack.adapter.productProperties());
-
   // Initialize the popover
   $(hack.tag).tooltipster({
-    content: $('<iframe frameborder=0 sandbox="allow-scripts" scrolling="yes" height="500" width="425" src="' + frameSrc + '"></iframe>'),
+    content: '',
     // setting a same value to minWidth and maxWidth will result in a fixed width
     minWidth: 425,
     maxWidth: 425,
@@ -19,7 +16,8 @@ hack.bootstrap = function(){
     // positionTracker: true,
     interactive: true,
     position: 'top-right',
-    offsetX: -hack.tag.width() 
+    offsetX: -hack.tag.width(),
+    functionBefore: hack.lib.button.content
   });
 
   hack.tag.click(function(){

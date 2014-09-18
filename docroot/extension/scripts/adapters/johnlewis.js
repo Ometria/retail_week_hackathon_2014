@@ -5,7 +5,7 @@
 // 1. isProductPage()
 
 // Condition for applying John Lewis adapter
-if (window.location.host === 'www.johnlewis.com') {
+if (window.location.host === 'www.johnlewis.com' || (""+window.location).indexOf('www.johnlewis.com')>0) {
   // Store retailer identity
   hack.retailer = 'johnlewis';
 
@@ -21,14 +21,14 @@ if (window.location.host === 'www.johnlewis.com') {
     // Product List Matching
     isProductList: function(){
       // Check the meta tag on the john lewis product pages
-      return true;
+      return document.getElementById('product-grid') === null;
     },
 
     // apply tag to product listing
     applyTag: function(){
       hack.tag = $('<a class="add-to-wish-list" href="#modal-show"><span class="stashed">Stashed!</span><span class="stash">Click to Stash!</span></button>');
 
-      hack.tag.click(hack.lib.button.stash);
+      hack.tag.click({tag: hack.tag}, hack.lib.button.stash);
 
       // Locate the wishlist tag on the product page
       $('.wish-list-links-wrapper').html(hack.tag);
@@ -58,7 +58,7 @@ if (window.location.host === 'www.johnlewis.com') {
       }
     },
 
-    productProperties: function(){
+    productProperties: function(product){
       // Title,
       // Image,
       // Price
