@@ -274,6 +274,10 @@
 .add-to-wish-list .stashed {
   display: none;
 }
+.add-to-wish-list.list-page {
+  margin: 0;
+  font-size: 12px;
+}
 .add-to-wish-list.loaded {
   visibility: visible !important;
   background-image: url('http://localhost:8080/extension/images/icon.png');

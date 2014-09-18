@@ -67,6 +67,7 @@ if ($product) {
         'product_image'=>$product_image,
         'price_formatted'=>$price_formatted,
         'lists'=>$lists,
+        'added_list_id'=>$list_id,
         'pid'=>$pid,
         'retailer'=>$retailer,
         'list_ids'=> $list_ids

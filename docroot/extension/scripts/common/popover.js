@@ -182,10 +182,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         else if (self.options.trigger == 'click') {
           
           // note : for touch devices, we do not bind on touchstart, we only rely on the emulated clicks (triggered by taps)
-          self.$elProxy.on('click.'+ self.namespace, function() {
+          self.$elProxy.on('click.'+ self.namespace, function(e) {
             if (!deviceIsPureTouch() || self.options.touchDevices) {
               self._show();
             }
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
           });
         }
       }
