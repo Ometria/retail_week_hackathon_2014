@@ -1424,7 +1424,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 // 1. isProductPage()
 
 // Condition for applying John Lewis adapter
-if (window.location.host === 'www.johnlewis.com' || window.location.indexOf('www.johnlewis.com')>0) {
+if (window.location.host === 'www.johnlewis.com' || (""+window.location).indexOf('www.johnlewis.com')>0) {
   // Store retailer identity
   hack.retailer = 'johnlewis';
 
