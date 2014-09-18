@@ -25,6 +25,11 @@ function user_friends($offset=0, $limit=100){
 }
 
 
+function product_get_list_ids($retailer, $pid){
+    $product = product_get_raw($retailer, $pid);
+    return @$product['lists']?:array();
+}
+
 
 function product_is_wishlisted($retailer, $pid){
     $product = product_get_raw($retailer, $pid);
@@ -56,7 +61,7 @@ function lists_get_for_user($extended=false){
 
     foreach($lists as &$list){
         $list_id = $list['id'];
-        $list['#products'] = products_count(array('lists'=>$list_id));
+        $list['n_products'] = products_count(array('lists'=>$list_id));
         if ($extended) $list['products'] = products_find(array('lists'=>$list_id), 10);
     }
 
@@ -170,7 +175,7 @@ function _map_product($data){
 function _map_list($row){
     $row['id'] = strval($row['_id']);
     unset($row['_id']);
-    $row['#users'] = count($row['uids']);
+    $row['n_users'] = count($row['uids']);
     unset($row['uids']);
     $row = remove_private($row);
     return $row;

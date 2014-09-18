@@ -23,3 +23,8 @@ function image_thumbnail_url($image_url, $size, $resize_mode='resize'){
 function esc($str){
     return htmlentities($str);
 }
+
+function show_template($template, $data){
+    extract($data);
+    require(__DIR__.'/templates/'.$template.'.php');
+}

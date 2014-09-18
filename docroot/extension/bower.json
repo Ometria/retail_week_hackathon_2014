@@ -1,0 +1,22 @@
+{
+  "name": "extension",
+  "main": "extension.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Ometria/retail_week_hackathon_2014",
+  "authors": [
+    "Barak <Barak.Chamo@Gmail.com>"
+  ],
+  "description": "hackathon extension",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "css-modal": "~1.1.8"
+  }
+}
