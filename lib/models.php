@@ -94,6 +94,14 @@ function list_remove($id){
 
 }
 
+function list_get($id){
+    global $mongo;
+
+    $res = $mongo->lists->findOne(array('_id'=>new MongoId($id)));
+
+    return $res ? _map_list($res) : null;
+}
+
 function products_find($where, $limit=100, $offset=0){
     global $mongo;
 
