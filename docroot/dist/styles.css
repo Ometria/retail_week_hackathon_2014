@@ -6291,7 +6291,7 @@ nav.navbar .user img {
   .list .products {
     -webkit-columns: 2;
   }
-  .list .toolbar button {
+  .list .toolbar .metric.date {
     display: none;
   }
 }
@@ -6395,6 +6395,9 @@ nav.navbar .user img {
   }
   #productModal .modal-body .content .metric {
     margin-bottom: 6px;
+  }
+  #productModal div.image-container {
+    height: 175px;
   }
   #productModal .right-section {
     display: none;

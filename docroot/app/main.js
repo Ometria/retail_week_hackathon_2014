@@ -24,13 +24,13 @@ define(['jquery', './router', 'listsCollection', 'dispatcher'], function($, Rout
     },
 
     buildListDropdown: function(data){
-      if(!app.dropdowns || data !== app.dropdowns){
+      if((!app.dropdowns || data.lists.length != app.dropdowns.lists.length) && $('.page.in .dropdown-lists').length){
         var listElms = [];
         data.lists.forEach(function(list){
           var lElm = $('<li><a href="/lists/' + list.id + '">'+ list.title +'</a></li>');
           listElms.push(lElm);
         });
-        console.log($('.dropdown-lists'), listElms);
+
         $('.page.in .dropdown-lists').empty().append(listElms);
 
         app.dropdowns = data;
