@@ -56,6 +56,7 @@
             font-size:14px;
             padding-top:0;
             font-weight: 200;
+            padding: 0 8px;
         }
         li{
             font-weight: 100;
