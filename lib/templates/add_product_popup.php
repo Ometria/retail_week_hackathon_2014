@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Stash: <?php echo esc($product['title']) ?></title>
     <link rel="stylesheet" href="/dist/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -59,7 +59,7 @@
     <div style="text-align:center">
 
         <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:14px;">
-            <img class="logo" src="/static/images/logo_grey.png"/>
+            <a href="/"><img class="logo" src="/static/images/logo_grey.png"/></a>
         </div>
 
         <div class="product-details">
@@ -71,7 +71,7 @@
                 <?php echo $price_formatted ?>
                 <?php if(@$product['url']): ?>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" href="<?php echo $product['url'] ?>" target="_blank">Shop now &raquo;</a>
+                <a class="btn btn-primary" href="/lists/<?php echo $added_list_id ?>">View stashes &raquo;</a>
                 <?php endif ?>
             </h4>
         </div>

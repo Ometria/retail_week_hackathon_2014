@@ -37,6 +37,8 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
       if(app.list.pollTimeout)
         clearTimeout(app.list.pollTimeout);
 
+      this.products  = null;
+
       $('body').css({'backgroundColor': ''});
     };
 
@@ -47,7 +49,7 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
 
       this.products = data.products;
 
-      this.el.empty().append(this.template({app: app, products: data.products}));
+      this.el.empty().append(this.template({app: app, products: data.products, list: data.list}));
       this.show();
     };
 

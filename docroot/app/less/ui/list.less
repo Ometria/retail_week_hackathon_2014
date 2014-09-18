@@ -60,7 +60,8 @@
           right:0;
           color: @gray-light;
           i { color: @gray; margin-right:4px; }
-          font-weight: 300;
+          font-weight: 400;
+          font-size:0.9em;
           padding:6px 12px;
           background:rgba(255,255,255,0.85);
         }
@@ -70,12 +71,19 @@
       div.info {
         padding:12px;
         border-top:1px solid @gray-lighter;
-        font-size:0.9em;
+        font-weight: 100;
 
         p.title {
         }
       }
     }
+  }
+
+  @media (max-width: 800px) {
+    .products {
+      -webkit-columns: 2;
+    }
+    .toolbar .metric.date { display: none; }
   }
 }
 

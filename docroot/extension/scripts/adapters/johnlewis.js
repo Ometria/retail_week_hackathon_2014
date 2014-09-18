@@ -5,7 +5,7 @@
 // 1. isProductPage()
 
 // Condition for applying John Lewis adapter
-if (window.location.host === 'www.johnlewis.com') {
+if (window.location.host === 'www.johnlewis.com' || (""+window.location).indexOf('www.johnlewis.com')>0) {
   // Store retailer identity
   hack.retailer = 'johnlewis';
 

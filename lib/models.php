@@ -94,6 +94,18 @@ function list_remove($id){
 
 }
 
+function list_get($id){
+    global $mongo;
+
+    if (substr($id,0,4)!='def_') {
+        $id = new MongoId($id);
+    }
+
+    $res = $mongo->lists->findOne(array('_id'=>$id));
+
+    return $res ? _map_list($res) : null;
+}
+
 function products_find($where, $limit=100, $offset=0){
     global $mongo;
 
@@ -169,6 +181,13 @@ function product_create($retailer, $pid, $data){
 function _map_product($data){
     $ret = remove_private($data);
     unset($ret['lists']);
+
+    $md5 = md5($ret['pid']);
+    $o = ord($md5[0]);
+
+
+    $ret['retail'] = ($o % 2) == 0;
+
     return $ret;
 }
 
@@ -178,6 +197,8 @@ function _map_list($row){
     $row['n_users'] = count($row['uids']);
     unset($row['uids']);
     $row = remove_private($row);
+
+    $row['date'] ='13th September 2014';
     return $row;
 }
 
