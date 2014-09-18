@@ -177,6 +177,9 @@ function product_create($retailer, $pid, $data){
 function _map_product($data){
     $ret = remove_private($data);
     unset($ret['lists']);
+
+    $ret['retail'] = ((ord(md5($ret['pid'])[0])) % 2) == 0;
+
     return $ret;
 }
 
@@ -186,6 +189,8 @@ function _map_list($row){
     $row['n_users'] = count($row['uids']);
     unset($row['uids']);
     $row = remove_private($row);
+
+    $row['date'] ='13th September 2014';
     return $row;
 }
 

@@ -16,7 +16,8 @@ if (@$_GET['list']) {
     $list = array(
         'id'=>'def_'.current_user(),
         'title'=>'All stashes',
-        'n_users'=>1
+        'n_users'=>1,
+        'date' => '13th September 2014'
         );
 }
 
