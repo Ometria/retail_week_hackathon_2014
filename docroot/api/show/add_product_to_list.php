@@ -63,6 +63,7 @@ if ($product) {
         $list_ids = product_get_list_ids($retailer, $pid);
     }
 
+
     $data = array(
         'product'=>$product,
         'product_image'=>$product_image,

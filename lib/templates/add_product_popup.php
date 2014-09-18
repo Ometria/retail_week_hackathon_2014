@@ -23,7 +23,6 @@
             padding: 0px 8px !important;
         }
         .lists li{
-            border : 1px solid red;
             margin:5px 0;
             font-size: 18px;
             background:#eee;
@@ -64,6 +63,13 @@
         li div{
             display: inline-block;
         }
+        li.selected{
+            background:#feac7a;
+            border: 1px solid #ce8c2a;
+        }
+        li.selected a{
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -87,11 +93,10 @@
 
         <ul class="lists">
             <?php foreach($lists as $list): ?>
-            <li>
+            <li class="<?php if(array_contains($list_ids, $list['id'])): ?>selected<?php endif ?>">
             <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>">
                 <?php if(array_contains($list_ids, $list['id'])): ?>
-
-                    ✔
+                    -
                 <?php else: ?>
                     +
                 <?php endif ?>
