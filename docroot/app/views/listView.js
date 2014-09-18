@@ -72,6 +72,14 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
       $('#productModal').on('click', '.btn-primary', function(){
         window.location.href = product.url;
       });
+
+      $('#productModal').on('click', '.btn-danger', function(){
+        $('#productModal').modal('hide');
+        $(el).fadeOut();
+        app.list.removeProduct(product.pid);
+      });
+
+
     };
 
   });
