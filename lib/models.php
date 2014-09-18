@@ -178,7 +178,11 @@ function _map_product($data){
     $ret = remove_private($data);
     unset($ret['lists']);
 
-    $ret['retail'] = ((ord(md5($ret['pid'])[0])) % 2) == 0;
+    $md5 = md5($ret['pid']);
+    $o = ord($md5[0]);
+
+
+    $ret['retail'] = ($o % 2) == 0;
 
     return $ret;
 }
