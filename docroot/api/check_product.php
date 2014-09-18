@@ -10,7 +10,7 @@ if (!is_array($pid)) $pid = array($pid);
 $ret = array();
 
 foreach($pid as $p){
-    $ret[$p] = product_is_wishlisted($retailer, $p);
+    if (product_is_wishlisted($retailer, $p)) $ret[] = $p;
 }
 
 header('Content-Type: text/javascript');
