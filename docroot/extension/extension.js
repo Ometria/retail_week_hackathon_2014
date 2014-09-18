@@ -128,7 +128,7 @@ hack.lib.button = {
   },
   content: function(origin, next){
     // Get iFrame URL
-    var frameSrc = hack.lib.api.stash(hack.adapter.productProperties(origin));
+    var frameSrc = hack.lib.api.stash(hack.adapter.productProperties(origin)) + '&mode=popup';
 
     origin.tooltipster('content', $('<iframe frameborder=0 sandbox="allow-scripts" scrolling="yes" height="500" id="stash-popup" width="425" src="' + frameSrc + '"></iframe>'));
 
@@ -1172,7 +1172,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         
         // position the tooltip
-        self.$tooltip.css({'top': Math.round(myTop) + 'px', 'left': Math.round(myLeft) + 'px'});
+        self.$tooltip.css({'top': 20 + 'vh', 'left': 36 + 'vw'});
       }
       
       return self;
@@ -1617,7 +1617,7 @@ hack.bootstrap = function(){
       minWidth: 425,
       maxWidth: 425,
       trigger: 'click',
-      positionTracker: true,
+      // positionTracker: true,
       interactive: true,
       position: 'top-right',
       offsetX: -tag.width(),

@@ -13,17 +13,16 @@
         .product-title{
         }
         .product-image{
-            height:280px;
+            height:230px;
             background-position: center;
             background-repeat: no-repeat;
         }
         .lists{
-            margin: 30px 0 0 0;
+            margin: 10px 0 0 0;
             list-style:none;
-            padding: 0px 10% !important;
+            padding: 0px 8px !important;
         }
         .lists li{
-            border : 1px solid red;
             margin:5px 0;
             font-size: 18px;
             background:#eee;
@@ -45,12 +44,31 @@
             padding:10px 0px 0px 0px;
         }
         .product-details {
-            margin-top: 85px;
+            margin-top: 65px;
         }
         .header {
-            position: absolute;
+            position: fixed;
             width: 100%;
             top: 0;
+        }
+        h4{
+            font-size:14px;
+            padding-top:0;
+            font-weight: 200;
+            padding: 0 8px;
+        }
+        li{
+            font-weight: 100;
+        }
+        li div{
+            display: inline-block;
+        }
+        li.selected{
+            background:#feac7a;
+            border: 1px solid #ce8c2a;
+        }
+        li.selected a{
+            color: #fff;
         }
     </style>
 </head>
@@ -58,8 +76,12 @@
 
     <div style="text-align:center">
 
-        <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:14px;">
-            <a href="/"><img class="logo" src="/static/images/logo_grey.png"/></a>
+        <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:6px;">
+            <?php if($is_popup): ?>
+            <a href="http://hackathon.random.ometria.com/lists/<?php echo $added_list_id ?>" target="_blank"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php else: ?>
+            <a href="http://hackathon.random.ometria.com/lists/<?php echo $added_list_id ?>"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php endif ?>
         </div>
 
         <div class="product-details">
@@ -69,21 +91,20 @@
                 <img src="<?php echo $product['logo'] ?>" style="height:20px;" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <?php echo $price_formatted ?>
-                <?php if(@$product['url']): ?>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" href="/lists/<?php echo $added_list_id ?>">View stashes &raquo;</a>
-                <?php endif ?>
+
             </h4>
         </div>
 
         <ul class="lists">
             <?php foreach($lists as $list): ?>
-            <li>
+            <li class="<?php if(array_contains($list_ids, $list['id'])): ?>selected<?php endif ?>">
             <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>">
                 <?php if(array_contains($list_ids, $list['id'])): ?>
-                    <span>✔ </span>
+                    -
+                <?php else: ?>
+                    +
                 <?php endif ?>
-                <?php echo esc($list['title'] ) ?>
+                <div><?php echo esc($list['title'] ) ?></div>
             </a>
             </li>
             <?php endforeach ?>
