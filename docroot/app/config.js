@@ -17,6 +17,7 @@ require.config({
     notFoundView: 'views/404',
     listsCollection: 'models/lists',
     listModel: 'models/list',
+    userModel: 'models/user',
     model: 'models/Model',
     dispatcher: 'dispatcher/Dispatcher',
     controller: 'views/Controller',

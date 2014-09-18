@@ -1,5 +1,31 @@
 this["templates"] = this["templates"] || {};
 
+Handlebars.registerPartial("_friend", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "\n<div class=\"user\">\n  <input type=\"checkbox\" id=\"user-";
+  if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\n  <label for=\"user-";
+  if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">\n    <img src=\"";
+  if (helper = helpers.image) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.image); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" alt=\"\">\n    ";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\n  </label>\n</div>\n";
+  return buffer;
+  }));
+
 Handlebars.registerPartial("_list", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -138,6 +164,28 @@ function program3(depth0,data) {
   return buffer;
   }));
 
+Handlebars.registerPartial("_shareModal", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
+  var buffer = "", stack1, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n            ";
+  stack1 = self.invokePartial(partials._friend, '_friend', depth0, helpers, partials, data);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n          ";
+  return buffer;
+  }
+
+  buffer += "<div id=\"shareModal\" class=\"modal fade\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\"><h4>Share your list!</h4></div>\n      <div class=\"modal-body\">\n\n        <div class=\"user-list\">\n          ";
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.friends), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        </div>\n\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Share</button>\n      </div>\n    </div><!-- /.modal-content -->\n  </div><!-- /.modal-dialog -->\n</div><!-- /.modal -->";
+  return buffer;
+  }));
+
 Handlebars.registerPartial("_topbar", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -205,7 +253,7 @@ function program1(depth0,data) {
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.list)),stack1 == null || stack1 === false ? stack1 : stack1.n_users)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\n    </span>\n    <span class=\"metric date\">\n      <i class=\"glyphicon glyphicon-calendar\"></i> "
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.list)),stack1 == null || stack1 === false ? stack1 : stack1.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\n    </span>\n    <button class=\"btn btn-info pull-right\"><i class=\"glyphicon glyphicon-user\"></i> Share</button>\n  </div>\n  <div class=\"products\">\n    ";
+    + "\n    </span>\n    <button class=\"btn btn-info pull-right share-button\"><i class=\"glyphicon glyphicon-user\"></i> Share</button>\n  </div>\n  <div class=\"products\">\n    ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.products), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n  </div>\n</div>\n";
@@ -219,6 +267,17 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
 
 
   stack1 = self.invokePartial(partials._productModal, '_productModal', depth0, helpers, partials, data);
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }
+  });
+
+this["templates"]["share"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
+  var stack1, self=this;
+
+
+  stack1 = self.invokePartial(partials._shareModal, '_shareModal', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { return stack1; }
   else { return ''; }
   });
