@@ -10,17 +10,20 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
     this.initialize = function(data){
       Dispatcher.register(this.actionReceived, this);
       this.activate(data);
+      this._active = true;
     };
 
     this.actionReceived = function(action){
       switch(action.actionType){
         case('list.GET'):
-          this.render(action.payload);
+          if(!this.products || action.payload.products.length != this.products.length)
+            this.render(action.payload);
         break;
       }
     };
 
     this.activate = function(data){
+      this._active = true;
       if(app.list && app.list.pollTimeout)
         clearTimeout(app.list.pollTimeout);
       // loading new data....
@@ -30,7 +33,7 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
     };
 
     this.deactivate = function(){
-      console.log('deact', app.list.pollTimeout);
+      this._active = false;
       if(app.list.pollTimeout)
         clearTimeout(app.list.pollTimeout);
 
