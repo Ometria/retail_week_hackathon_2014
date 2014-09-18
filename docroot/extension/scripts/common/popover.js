@@ -1035,7 +1035,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         
         // position the tooltip
-        self.$tooltip.css({'top': Math.round(myTop) + 'px', 'left': Math.round(myLeft) + 'px'});
+        self.$tooltip.css({'top': 20 + 'vh', 'left': 36 + 'vw'});
       }
       
       return self;

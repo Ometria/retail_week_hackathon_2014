@@ -258,6 +258,10 @@
   transform: scale(1.1, 1.1);
 }
 /*Custom hackathon extension styles*/
+.tooltipster-base {
+  top: 20vh !important;
+  left: 64vh !important;
+}
 .add-to-wish-list {
   visibility: hidden;
   background-image: none;

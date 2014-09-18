@@ -16,7 +16,7 @@ hack.bootstrap = function(){
       minWidth: 425,
       maxWidth: 425,
       trigger: 'click',
-      positionTracker: true,
+      // positionTracker: true,
       interactive: true,
       position: 'top-right',
       offsetX: -tag.width(),
