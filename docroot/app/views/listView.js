@@ -96,15 +96,7 @@ define(['jquery', 'controller', 'dispatcher', 'listModel', 'userModel'], functio
       $('body').append(modal);
 
       $('#shareModal').modal();
-      // $('#shareModal').on('click', '.btn-primary', function(){
-      //   window.location.href = product.url;
-      // });
 
-      // $('#productModal').on('click', '.btn-danger', function(){
-      //   $('#productModal').modal('hide');
-      //   $(el).fadeOut();
-      //   app.list.removeProduct(product.pid);
-      // });
     };
 
   });
