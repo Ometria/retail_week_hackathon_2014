@@ -77,7 +77,7 @@
     <div style="text-align:center">
 
         <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:6px;">
-            <a href="/"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <a href="/lists/<?php echo $added_list_id ?>"><img class="logo" src="/static/images/logo_grey.png"/></a>
         </div>
 
         <div class="product-details">
