@@ -118,11 +118,19 @@ hack.lib.api = {
 hack.lib = hack.lib || {};
 
 hack.lib.button = {
-  stash: function(params, callback){
+  stash: function(event){
     // Toggle the 'stashed' class on the button
-    hack.tag.addClass('active');
+    event.data.tag.addClass('active');
 
-    $(hack.tag).tooltipster('show');
+    event.data.tag.tooltipster('show');
+  },
+  content: function(origin, next){
+    // Get iFrame URL
+    var frameSrc = hack.lib.api.stash(hack.adapter.productProperties(origin));
+
+    origin.tooltipster('content', $('<iframe frameborder=0 sandbox="allow-scripts" scrolling="yes" height="500" id="stash-popup" width="425" src="' + frameSrc + '"></iframe>'));
+
+    next();
   }
 };
 /*
@@ -1432,14 +1440,14 @@ if (window.location.host === 'www.johnlewis.com') {
     // Product List Matching
     isProductList: function(){
       // Check the meta tag on the john lewis product pages
-      return true;
+      return document.getElementById('product-grid') === null;
     },
 
     // apply tag to product listing
     applyTag: function(){
       hack.tag = $('<a class="add-to-wish-list" href="#modal-show"><span class="stashed">Stashed!</span><span class="stash">Click to Stash!</span></button>');
 
-      hack.tag.click(hack.lib.button.stash);
+      hack.tag.click({tag: hack.tag}, hack.lib.button.stash);
 
       // Locate the wishlist tag on the product page
       $('.wish-list-links-wrapper').html(hack.tag);
@@ -1469,7 +1477,7 @@ if (window.location.host === 'www.johnlewis.com') {
       }
     },
 
-    productProperties: function(){
+    productProperties: function(product){
       // Title,
       // Image,
       // Price
@@ -1508,12 +1516,9 @@ hack.bootstrap = function(){
   // Apply the tags!
   hack.adapter.applyTag();
 
-  // Get iFrame URL
-  var frameSrc = hack.lib.api.stash(hack.adapter.productProperties());
-
   // Initialize the popover
   $(hack.tag).tooltipster({
-    content: $('<iframe frameborder=0 sandbox="allow-scripts" scrolling="yes" height="500" width="425" src="' + frameSrc + '"></iframe>'),
+    content: '',
     // setting a same value to minWidth and maxWidth will result in a fixed width
     minWidth: 425,
     maxWidth: 425,
@@ -1521,7 +1526,8 @@ hack.bootstrap = function(){
     // positionTracker: true,
     interactive: true,
     position: 'top-right',
-    offsetX: -hack.tag.width() 
+    offsetX: -hack.tag.width(),
+    functionBefore: hack.lib.button.content
   });
 
   hack.tag.click(function(){
