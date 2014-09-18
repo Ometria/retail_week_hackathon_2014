@@ -23,7 +23,6 @@
             padding: 0px 8px !important;
         }
         .lists li{
-            border : 1px solid red;
             margin:5px 0;
             font-size: 18px;
             background:#eee;
@@ -56,12 +55,20 @@
             font-size:14px;
             padding-top:0;
             font-weight: 200;
+            padding: 0 8px;
         }
         li{
             font-weight: 100;
         }
         li div{
             display: inline-block;
+        }
+        li.selected{
+            background:#feac7a;
+            border: 1px solid #ce8c2a;
+        }
+        li.selected a{
+            color: #fff;
         }
     </style>
 </head>
@@ -70,7 +77,11 @@
     <div style="text-align:center">
 
         <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:6px;">
-            <a href="/"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php if($is_popup): ?>
+            <a href="http://hackathon.random.ometria.com/lists/<?php echo $added_list_id ?>" target="_blank"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php else: ?>
+            <a href="http://hackathon.random.ometria.com/lists/<?php echo $added_list_id ?>"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php endif ?>
         </div>
 
         <div class="product-details">
@@ -86,12 +97,14 @@
 
         <ul class="lists">
             <?php foreach($lists as $list): ?>
-            <li>
+            <li class="<?php if(array_contains($list_ids, $list['id'])): ?>selected<?php endif ?>">
             <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>">
                 <?php if(array_contains($list_ids, $list['id'])): ?>
-                    <span>✔ </span>
+                    -
+                <?php else: ?>
+                    +
                 <?php endif ?>
-                + <div><?php echo esc($list['title'] ) ?></div>
+                <div><?php echo esc($list['title'] ) ?></div>
             </a>
             </li>
             <?php endforeach ?>
