@@ -97,7 +97,11 @@ function list_remove($id){
 function list_get($id){
     global $mongo;
 
-    $res = $mongo->lists->findOne(array('_id'=>new MongoId($id)));
+    if (substr($id,0,4)!='def_') {
+        $id = new MongoId($id);
+    }
+
+    $res = $mongo->lists->findOne(array('_id'=>$id));
 
     return $res ? _map_list($res) : null;
 }
