@@ -39,6 +39,7 @@ $cb = function($m){
 };
 $html = preg_replace_callback('#(<a[^>]+href)="([^"]+)"#', $cb, $html);
 
+$html = preg_replace('#<script[^>]+richrelevance[^>]+></script>#', '', $html);
 
 // Add custom scripts here
 $scripts = array();
