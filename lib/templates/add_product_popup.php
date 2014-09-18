@@ -13,14 +13,14 @@
         .product-title{
         }
         .product-image{
-            height:280px;
+            height:230px;
             background-position: center;
             background-repeat: no-repeat;
         }
         .lists{
-            margin: 30px 0 0 0;
+            margin: 10px 0 0 0;
             list-style:none;
-            padding: 0px 10% !important;
+            padding: 0px 8px !important;
         }
         .lists li{
             border : 1px solid red;
@@ -45,12 +45,23 @@
             padding:10px 0px 0px 0px;
         }
         .product-details {
-            margin-top: 85px;
+            margin-top: 65px;
         }
         .header {
-            position: absolute;
+            position: fixed;
             width: 100%;
             top: 0;
+        }
+        h4{
+            font-size:14px;
+            padding-top:0;
+            font-weight: 200;
+        }
+        li{
+            font-weight: 100;
+        }
+        li div{
+            display: inline-block;
         }
     </style>
 </head>
@@ -58,7 +69,7 @@
 
     <div style="text-align:center">
 
-        <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:14px;">
+        <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:6px;">
             <a href="/"><img class="logo" src="/static/images/logo_grey.png"/></a>
         </div>
 
@@ -69,10 +80,7 @@
                 <img src="<?php echo $product['logo'] ?>" style="height:20px;" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <?php echo $price_formatted ?>
-                <?php if(@$product['url']): ?>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" href="/lists/<?php echo $added_list_id ?>">View stashes &raquo;</a>
-                <?php endif ?>
+
             </h4>
         </div>
 
@@ -83,7 +91,7 @@
                 <?php if(array_contains($list_ids, $list['id'])): ?>
                     <span>✔ </span>
                 <?php endif ?>
-                <?php echo esc($list['title'] ) ?>
+                + <div><?php echo esc($list['title'] ) ?></div>
             </a>
             </li>
             <?php endforeach ?>
