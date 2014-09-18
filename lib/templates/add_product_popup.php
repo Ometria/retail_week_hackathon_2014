@@ -90,9 +90,12 @@
             <li>
             <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>">
                 <?php if(array_contains($list_ids, $list['id'])): ?>
-                    <span>✔ </span>
+
+                    ✔
+                <?php else: ?>
+                    +
                 <?php endif ?>
-                + <div><?php echo esc($list['title'] ) ?></div>
+                <div><?php echo esc($list['title'] ) ?></div>
             </a>
             </li>
             <?php endforeach ?>
