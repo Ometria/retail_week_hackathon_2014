@@ -77,7 +77,11 @@
     <div style="text-align:center">
 
         <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:6px;">
+            <?php if($is_popup): ?>
+            <a href="/lists/<?php echo $added_list_id ?>" target="_blank"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php else: ?>
             <a href="/lists/<?php echo $added_list_id ?>"><img class="logo" src="/static/images/logo_grey.png"/></a>
+            <?php endif ?>
         </div>
 
         <div class="product-details">
