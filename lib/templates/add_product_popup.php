@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+        h4 {
+            font-size: 16px;
+        }
         .product-title{
         }
         .product-image{
@@ -37,17 +40,29 @@
         .lists span{
             padding-right: 10px;
         }
+        .logo {
+            height:50px;
+            padding:10px 0px 0px 0px;
+        }
+        .product-details {
+            margin-top: 85px;
+        }
+        .header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
     </style>
 </head>
 <body>
 
     <div style="text-align:center">
 
-        <div style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:14px;">
-            <img src="/static/images/logo_grey.png" style="height:70px;padding:10px 0px 0px 0px;" />
+        <div class="header" style="background:#eee;border-bottom: 1px solid #ccc;margin-bottom:14px;">
+            <img class="logo" src="/static/images/logo_grey.png"/>
         </div>
 
-        <div>
+        <div class="product-details">
             <h4 class="product-title"><?php echo esc($product['title']) ?></h4>
             <div class="product-image" style="background: url(<?php echo $product_image ?>) center no-repeat;"></div>
             <h4 class="product-price">
