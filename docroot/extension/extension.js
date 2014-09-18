@@ -130,7 +130,7 @@ hack.lib.button = {
     // Get iFrame URL
     var frameSrc = hack.lib.api.stash(hack.adapter.productProperties(origin)) + '&mode=popup';
 
-    origin.tooltipster('content', $('<iframe frameborder=0 sandbox="allow-scripts" scrolling="yes" height="500" id="stash-popup" width="425" src="' + frameSrc + '"></iframe>'));
+    origin.tooltipster('content', $('<iframe frameborder=0 scrolling="yes" height="500" id="stash-popup" width="425" src="' + frameSrc + '"></iframe>'));
 
     next();
   }
