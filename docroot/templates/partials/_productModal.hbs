@@ -8,28 +8,48 @@
           <span class="metric">
             <i class="glyphicon glyphicon-calendar"></i> 17 Setember 2014
           </span>
+
           <span class="metric">
-          {{#if product.retail}}
-            <i class="glyphicon glyphicon-shopping-cart"></i> In Store
-          {{else}}
-            <i class="glyphicon glyphicon-globe"></i> johnlewis.com/
-          {{/if}}
+            <i class="glyphicon glyphicon-search"></i> {{product.pid}}
           </span>
+
           <span class="metric">
             £{{product.price}}
           </span>
 
-          <img src="{{product.image_url}}" alt="" class="product-image">
+          <div style="text-align:center">
+            <div class="image-container"><img src="{{product.image_url}}" alt="" class="product-image"></div>
+            <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-globe"></i> Buy online</button>
+            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-shopping-cart"></i> Find a store near me</button>
+          </div>
 
         </div>
         <div class="right-section">
-          <img src="/static/images/map.png" alt="" class="map">
-          <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-globe"></i> Buy online</button>
-          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-shopping-cart"></i> Find a store near me</button>
+        {{#if product.retail}}
+          <span class="metric">
+            <i class="glyphicon glyphicon-shopping-cart"></i> Added In Store
+          </span>
+          <div class="image-container" style="background-image: url('/static/images/map.png')"></div>
+        {{else}}
+          <span class="metric">
+            <i class="glyphicon glyphicon-globe"></i> Added Online: <a href="#">johnlewis.com/</a>
+          </span>
+           <div class="image-container" style="background-image: url('/static/images/website.png')"></div>
+        {{/if}}
+
+          <div class="store-address">
+            <span class="store-name">John Lewis</span>
+            <span class="store-open">Open today until 9:00pm</span>
+            <span>300 Oxford Street,</span>
+            <span>London W1A 1EX</span>
+          </div>
+
+
         </div>
 
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Remove</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->

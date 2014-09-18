@@ -1,16 +1,16 @@
 {{> _topbar }}
 
 <div class="container list">
-  <h2 class="list-title"> Test List1 </h2>
+  <h2 class="list-title"> {{ list.title }} </h2>
   <div class="toolbar">
     <span class="metric">
-        <i class="glyphicon glyphicon-shopping-cart"></i> -1
+        <i class="glyphicon glyphicon-shopping-cart"></i> {{ products.length }}
     </span>
     <span class="metric">
-      <i class="glyphicon glyphicon-user"></i> -1
+      <i class="glyphicon glyphicon-user"></i> {{ list.n_users }}
     </span>
     <span class="metric">
-      <i class="glyphicon glyphicon-calendar"></i> 17 September 2014
+      <i class="glyphicon glyphicon-calendar"></i> {{ list.date }}
     </span>
     <button class="btn btn-info pull-right"><i class="glyphicon glyphicon-user"></i> Share</button>
   </div>

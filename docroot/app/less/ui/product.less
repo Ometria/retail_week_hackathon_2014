@@ -10,28 +10,41 @@
       font-weight: 100;
     }
 
+    .metric {
+      display: inline-block;
+      color:@gray-light;
+      min-width:175px;
+      font-weight:300;
+      margin-bottom:20px;
+      margin-left:3px;
+      padding:0;
+      i {
+        color: @gray;
+        margin-right:6px;
+      }
+    }
+
+    div.image-container {
+      height: 275px;
+    }
+
     .content {
       width:65%;
       float:left;
       ul {
         list-style:none;
       }
+
       img.product-image {
-        width:50%;
+        max-width:100%;
+        max-height:100%;
         display: block;
-        margin:0px auto;
+        margin:0px auto 20px;
       }
-      .metric {
+      button {
+        width:35%;
+        margin:10px 10px 10px;
         display: inline-block;
-        color:@gray-light;
-        width:175px;
-        font-weight:300;
-        margin-bottom:30px;
-        margin-left:3px;
-        i {
-          color: @gray;
-          margin-right:6px;
-        }
       }
     }
 
@@ -40,18 +53,73 @@
       float:right;
       margin-right: 10px;
 
-      img.map {
-        width:250px;
-        display: block;
-        margin:0 auto 30px auto;
+      div.image-container {
+        height: 255px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: url('') no-repeat scroll center center;
+        background-size: cover;
         border:10px solid lighten(@gray-lighter, 5%);
       }
-      button {
-        width:75%;
-        margin:10px auto;
-        display: block;
+
+      .store-address{
+        span {
+          padding:0 10px;
+          color: @gray-light;
+          display: block;
+        }
+        .store-name {
+          color:@gray-dark;
+          font-weight:600;
+        }
+        .store-open {
+          color:@gray-dark;
+          font-weight:600;
+          padding-left:14px;
+          &:before {
+            content: ' ';
+            width:6px;
+            height:6px;
+            position:relative;
+            left:-4px;
+            top:-2px;
+            display: inline-block;
+            line-height:20px;
+            border-radius:100%;
+            background:green;
+          }
+        }
       }
     }
 
+  }
+}
+
+@media (max-width: 800px) {
+  #productModal {
+    .modal-dialog {
+      width:95%;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .modal-body .content {
+      width:100%;
+
+      button {
+        width:75%;
+        margin-top:10px;
+        margin-left:auto;
+        margin-right:auto;
+        display:block;
+      }
+
+      .metric {
+        margin-bottom:6px;
+      }
+
+    }
+    .right-section {
+      display:none;
+    }
   }
 }

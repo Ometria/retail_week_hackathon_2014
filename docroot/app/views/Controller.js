@@ -22,7 +22,10 @@ define(['jquery', 'behaviours', 'utils'], function($, Behaviours, Utils){
       // Overwritting render to append some behaviours
       instance._render = instance.render;
       instance.render = function(){
-        if(!this._active) return;
+        if(!this._active) {
+          console.log('render: returning because not active');
+          return;
+        }
         instance._render.apply(instance, arguments);
         Behaviours.append();
       };

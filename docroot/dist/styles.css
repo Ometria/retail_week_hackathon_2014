@@ -6273,7 +6273,8 @@ nav.navbar .user img {
   left: 0;
   right: 0;
   color: #777777;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 0.9em;
   padding: 6px 12px;
   background: rgba(255, 255, 255, 0.85);
 }
@@ -6284,7 +6285,15 @@ nav.navbar .user img {
 .list .products .product div.info {
   padding: 12px;
   border-top: 1px solid #eeeeee;
-  font-size: 0.9em;
+  font-weight: 100;
+}
+@media (max-width: 800px) {
+  .list .products {
+    -webkit-columns: 2;
+  }
+  .list .toolbar button {
+    display: none;
+  }
 }
 #productModal .modal-dialog {
   width: 1000px;
@@ -6295,6 +6304,22 @@ nav.navbar .user img {
 #productModal .modal-body h2 {
   font-weight: 100;
 }
+#productModal .modal-body .metric {
+  display: inline-block;
+  color: #777777;
+  min-width: 175px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  margin-left: 3px;
+  padding: 0;
+}
+#productModal .modal-body .metric i {
+  color: #555555;
+  margin-right: 6px;
+}
+#productModal .modal-body div.image-container {
+  height: 275px;
+}
 #productModal .modal-body .content {
   width: 65%;
   float: left;
@@ -6303,37 +6328,80 @@ nav.navbar .user img {
   list-style: none;
 }
 #productModal .modal-body .content img.product-image {
-  width: 50%;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
-  margin: 0px auto;
+  margin: 0px auto 20px;
 }
-#productModal .modal-body .content .metric {
+#productModal .modal-body .content button {
+  width: 35%;
+  margin: 10px 10px 10px;
   display: inline-block;
-  color: #777777;
-  width: 175px;
-  font-weight: 300;
-  margin-bottom: 30px;
-  margin-left: 3px;
-}
-#productModal .modal-body .content .metric i {
-  color: #555555;
-  margin-right: 6px;
 }
 #productModal .modal-body .right-section {
   width: 30%;
   float: right;
   margin-right: 10px;
 }
-#productModal .modal-body .right-section img.map {
-  width: 250px;
-  display: block;
-  margin: 0 auto 30px auto;
+#productModal .modal-body .right-section div.image-container {
+  height: 255px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: url('') no-repeat scroll center center;
+  background-size: cover;
   border: 10px solid #fbfbfb;
 }
-#productModal .modal-body .right-section button {
-  width: 75%;
-  margin: 10px auto;
+#productModal .modal-body .right-section .store-address span {
+  padding: 0 10px;
+  color: #777777;
   display: block;
+}
+#productModal .modal-body .right-section .store-address .store-name {
+  color: #404040;
+  font-weight: 600;
+}
+#productModal .modal-body .right-section .store-address .store-open {
+  color: #404040;
+  font-weight: 600;
+  padding-left: 14px;
+}
+#productModal .modal-body .right-section .store-address .store-open:before {
+  content: ' ';
+  width: 6px;
+  height: 6px;
+  position: relative;
+  left: -4px;
+  top: -2px;
+  display: inline-block;
+  line-height: 20px;
+  border-radius: 100%;
+  background: green;
+}
+@media (max-width: 800px) {
+  #productModal .modal-dialog {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #productModal .modal-body .content {
+    width: 100%;
+  }
+  #productModal .modal-body .content button {
+    width: 75%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  #productModal .modal-body .content .metric {
+    margin-bottom: 6px;
+  }
+  #productModal .right-section {
+    display: none;
+  }
+}
+html {
+  height: 100%;
 }
 body {
   overflow-y: scroll;

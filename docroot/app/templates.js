@@ -114,25 +114,27 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  return "\n            <i class=\"glyphicon glyphicon-shopping-cart\"></i> In Store\n          ";
+  return "\n          <span class=\"metric\">\n            <i class=\"glyphicon glyphicon-shopping-cart\"></i> Added In Store\n          </span>\n          <div class=\"image-container\" style=\"background-image: url('/static/images/map.png')\"></div>\n        ";
   }
 
 function program3(depth0,data) {
   
   
-  return "\n            <i class=\"glyphicon glyphicon-globe\"></i> johnlewis.com/\n          ";
+  return "\n          <span class=\"metric\">\n            <i class=\"glyphicon glyphicon-globe\"></i> Added Online: <a href=\"#\">johnlewis.com/</a>\n          </span>\n           <div class=\"image-container\" style=\"background-image: url('/static/images/website.png')\"></div>\n        ";
   }
 
   buffer += "<div id=\"productModal\" class=\"modal fade\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body\">\n        <h2>"
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h2>\n\n        <div class=\"content\">\n          <span class=\"metric\">\n            <i class=\"glyphicon glyphicon-calendar\"></i> 17 Setember 2014\n          </span>\n          <span class=\"metric\">\n          ";
+    + "</h2>\n\n        <div class=\"content\">\n          <span class=\"metric\">\n            <i class=\"glyphicon glyphicon-calendar\"></i> 17 Setember 2014\n          </span>\n\n          <span class=\"metric\">\n            <i class=\"glyphicon glyphicon-search\"></i> "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.pid)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n          </span>\n\n          <span class=\"metric\">\n            £"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.price)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n          </span>\n\n          <div style=\"text-align:center\">\n            <div class=\"image-container\"><img src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.image_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" alt=\"\" class=\"product-image\"></div>\n            <button type=\"button\" class=\"btn btn-primary\"><i class=\"glyphicon glyphicon-globe\"></i> Buy online</button>\n            <button type=\"button\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-shopping-cart\"></i> Find a store near me</button>\n          </div>\n\n        </div>\n        <div class=\"right-section\">\n        ";
   stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.retail), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n          </span>\n          <span class=\"metric\">\n            £"
-    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.price)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\n          </span>\n\n          <img src=\""
-    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.product)),stack1 == null || stack1 === false ? stack1 : stack1.image_url)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" alt=\"\" class=\"product-image\">\n\n        </div>\n        <div class=\"right-section\">\n          <img src=\"/static/images/map.png\" alt=\"\" class=\"map\">\n          <button type=\"button\" class=\"btn btn-primary\"><i class=\"glyphicon glyphicon-globe\"></i> Buy online</button>\n          <button type=\"button\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-shopping-cart\"></i> Find a store near me</button>\n        </div>\n\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div><!-- /.modal-content -->\n  </div><!-- /.modal-dialog -->\n</div><!-- /.modal -->";
+  buffer += "\n\n          <div class=\"store-address\">\n            <span class=\"store-name\">John Lewis</span>\n            <span class=\"store-open\">Open today until 9:00pm</span>\n            <span>300 Oxford Street,</span>\n            <span>London W1A 1EX</span>\n          </div>\n\n\n        </div>\n\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-danger pull-left\" data-dismiss=\"modal\">Remove</button>\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div><!-- /.modal-content -->\n  </div><!-- /.modal-dialog -->\n</div><!-- /.modal -->";
   return buffer;
   }));
 
@@ -150,7 +152,7 @@ function program1(depth0,data) {
   buffer += "\n<nav class=\"navbar navbar-default\" role=\"navigation\">\n  <div class=\"container\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"/\"><img src=\"/static/images/logo_grey.png\" height=\"35\" alt=\"STASH\"></a>\n    </div>\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.app)),stack1 == null || stack1 === false ? stack1 : stack1.activeView)),stack1 == null || stack1 === false ? stack1 : stack1.home), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\"><a href=\"/\">Home</a></li>\n        <li class=\"dropdown\">\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Lists <span class=\"caret\"></span></a>\n          <ul class=\"dropdown-menu\" role=\"menu\">\n            <li><a href=\"#\">Action</a></li>\n            <li><a href=\"#\">Another action</a></li>\n            <li><a href=\"#\">Something else here</a></li>\n            <li class=\"divider\"></li>\n            <li><a href=\"#\">Separated link</a></li>\n            <li class=\"divider\"></li>\n            <li><a href=\"#\">One more separated link</a></li>\n          </ul>\n        </li>\n      </ul>\n      <form class=\"navbar-form navbar-left\" role=\"search\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for products...\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </form>\n      <div class=\"pull-right\">\n\n      <div class=\"user\">\n        <img src=\"/static/images/profile.jpg\" alt=\"\">\n        <a href=\"#\">Rui Ramos <span class=\"caret\"></span></a>\n      </div>\n      </div>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>";
+  buffer += "\"><a href=\"/\">Home</a></li>\n        <li class=\"dropdown\">\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Lists <span class=\"caret\"></span></a>\n          <ul class=\"dropdown-menu dropdown-lists\" role=\"menu\">\n          </ul>\n        </li>\n      </ul>\n      <form class=\"navbar-form navbar-left\" role=\"search\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for products...\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </form>\n      <div class=\"pull-right\">\n\n      <div class=\"user\">\n        <img src=\"/static/images/profile.jpg\" alt=\"\">\n        <a href=\"#\">Rui Ramos <span class=\"caret\"></span></a>\n      </div>\n      </div>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>";
   return buffer;
   }));
 
@@ -181,7 +183,7 @@ function program1(depth0,data) {
 this["templates"]["lists"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
-  var buffer = "", stack1, self=this;
+  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
@@ -195,7 +197,15 @@ function program1(depth0,data) {
 
   stack1 = self.invokePartial(partials._topbar, '_topbar', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n<div class=\"container list\">\n  <h2 class=\"list-title\"> Test List1 </h2>\n  <div class=\"toolbar\">\n    <span class=\"metric\">\n        <i class=\"glyphicon glyphicon-shopping-cart\"></i> -1\n    </span>\n    <span class=\"metric\">\n      <i class=\"glyphicon glyphicon-user\"></i> -1\n    </span>\n    <span class=\"metric\">\n      <i class=\"glyphicon glyphicon-calendar\"></i> 17 September 2014\n    </span>\n    <button class=\"btn btn-info pull-right\"><i class=\"glyphicon glyphicon-user\"></i> Share</button>\n  </div>\n  <div class=\"products\">\n    ";
+  buffer += "\n\n<div class=\"container list\">\n  <h2 class=\"list-title\"> "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.list)),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + " </h2>\n  <div class=\"toolbar\">\n    <span class=\"metric\">\n        <i class=\"glyphicon glyphicon-shopping-cart\"></i> "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.products)),stack1 == null || stack1 === false ? stack1 : stack1.length)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n    </span>\n    <span class=\"metric\">\n      <i class=\"glyphicon glyphicon-user\"></i> "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.list)),stack1 == null || stack1 === false ? stack1 : stack1.n_users)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n    </span>\n    <span class=\"metric\">\n      <i class=\"glyphicon glyphicon-calendar\"></i> "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.list)),stack1 == null || stack1 === false ? stack1 : stack1.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n    </span>\n    <button class=\"btn btn-info pull-right\"><i class=\"glyphicon glyphicon-user\"></i> Share</button>\n  </div>\n  <div class=\"products\">\n    ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.products), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n  </div>\n</div>\n";
