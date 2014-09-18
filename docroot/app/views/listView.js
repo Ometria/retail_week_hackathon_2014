@@ -10,29 +10,33 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
     this.initialize = function(data){
       Dispatcher.register(this.actionReceived, this);
       this.activate(data);
+      this._active = true;
     };
 
     this.actionReceived = function(action){
       switch(action.actionType){
         case('list.GET'):
-          this.render(action.payload);
+          if(!this.products || action.payload.products.length != this.products.length)
+            this.render(action.payload);
         break;
       }
     };
 
     this.activate = function(data){
-      if(!app.list || data.id !== app.list.id){
-        // loading new data....
-        app.list = new List(data.id);
-        app.list.fetch();
-        this.el.empty();
-      } else {
-        // I have the right data, just show
-        this.show();
-      }
+      this._active = true;
+      if(app.list && app.list.pollTimeout)
+        clearTimeout(app.list.pollTimeout);
+      // loading new data....
+      app.list = new List(data.id);
+      app.list.poll();
+      this.el.empty();
     };
 
     this.deactivate = function(){
+      this._active = false;
+      if(app.list.pollTimeout)
+        clearTimeout(app.list.pollTimeout);
+
       $('body').css({'backgroundColor': ''});
     };
 
