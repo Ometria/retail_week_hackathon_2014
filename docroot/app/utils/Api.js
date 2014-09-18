@@ -3,7 +3,7 @@ define(['jquery'], function($){
     get: function(url, params, fn){
       $.ajax(
         url, {
-          data: params,
+          data: $.extend(params, {noCache: new Date().getTime()}),
           xhrFields: {withCredentials: true},
           success: function(data){ fn(data); },
           type: 'GET',

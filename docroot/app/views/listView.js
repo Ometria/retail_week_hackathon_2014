@@ -1,10 +1,12 @@
-define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controller, Dispatcher, List){
+define(['jquery', 'controller', 'dispatcher', 'listModel', 'userModel'], function($, Controller, Dispatcher, List, User){
   var listController = Controller.init(function(){
     this.template = templates.lists;
     this.productModal = templates.product;
+    this.shareModal = templates.share;
 
     this.events = {
-      'click .product': 'triggerModal'
+      'click .product': 'triggerModal',
+      'click .share-button': 'triggerShareModal'
     };
 
     this.initialize = function(data){
@@ -19,6 +21,10 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
           if(!this.products || action.payload.products.length != this.products.length)
             this.render(action.payload);
         break;
+        case('user.GET'):
+          this.currentUser = action.payload;
+          this.displayShareModal();
+        break;
       }
     };
 
@@ -28,8 +34,8 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
         clearTimeout(app.list.pollTimeout);
       // loading new data....
       app.list = new List(data.id);
-      app.list.poll();
       this.el.empty();
+      app.list.poll();
     };
 
     this.deactivate = function(){
@@ -78,7 +84,18 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
         $(el).fadeOut();
         app.list.removeProduct(product.pid);
       });
+    };
 
+    this.triggerShareModal = function(){
+      (new User()).fetch();
+    },
+
+    this.displayShareModal = function(el){
+      var modal = $(this.shareModal({user: this.currentUser}));
+      $('body #shareModal').remove();
+      $('body').append(modal);
+
+      $('#shareModal').modal();
 
     };
 

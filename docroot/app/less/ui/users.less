@@ -1,0 +1,27 @@
+.user-list {
+  overflow:auto;
+
+  .user {
+    width:45%;
+    margin-right:2.5%;
+    margin-bottom:12px;
+    float:left;
+    padding:12px;
+    cursor: pointer;
+    border:1px solid lighten(@gray-lighter, 15%);
+    border-top:0;
+    border-left:0;
+
+    &:hover {
+      background: lighten(@gray-lighter, 5%);
+    }
+
+    img {
+      width:45px;
+      height:45px;
+      border-radius:100%;
+      margin-left:12px;
+      margin-right:12px;
+    }
+  }
+}

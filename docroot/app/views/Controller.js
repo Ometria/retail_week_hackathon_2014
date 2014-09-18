@@ -31,14 +31,20 @@ define(['jquery', 'behaviours', 'utils'], function($, Behaviours, Utils){
       };
 
       // Attaching events
-      for(var evt in instance.events){
+      if(instance.events)
+      $.each(instance.events, function(evt, fnStr){
+        console.log(evt, fnStr)
         var action = evt.split(' ')[0];
         var selector = evt.split(' ')[1];
-        var fn = instance[instance.events[evt]].bind(instance);
+        var fn = instance[fnStr].bind(instance);
+
         instance.el.on(action, selector, function(e){
+          console.log('binding', selector, instance[instance.events[evt]])
           fn.call(instance, this);
         });
-      };
+
+      });
+
 
 
       $(instance).on('view:activate', function(e, data){

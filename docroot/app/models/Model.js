@@ -23,7 +23,7 @@ define(['dispatcher', 'api'], function(Dispatcher, Api){
           });
           _this.pollTimeout = setTimeout(function(){
             _this.poll();
-          }, 1500);
+          }, 2000);
         });
       };
 

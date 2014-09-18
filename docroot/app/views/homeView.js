@@ -19,6 +19,7 @@ define(['jquery', 'dispatcher', 'controller'], function($, Dispatcher, Controlle
 
     this.activate = function(){
       this._active = true;
+      this.data = null;
       if(app.lists.pollTimeout) clearTimeout(app.lists.pollTimeout);
       app.lists.poll();
       this.show();
