@@ -10,8 +10,12 @@ $deflist = array(
         'id'=>'def_'.current_user(),
         'title'=>'All stashes',
         'n_users'=>1,
-        'date' => '13th September 2014'
+        'date' => '13th September 2014',
         );
+
+if ($extended){
+    $deflist['products']=products_find(array('lists'=>'def_'.current_user()), 10);
+}
 
 array_unshift($lists, $deflist);
 
