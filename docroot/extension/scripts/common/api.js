@@ -15,9 +15,8 @@ hack.lib.api = {
    
      // JSONP callback handler
      window.stash_status = function(status){
-      hack.lib.active = status.listed ? true : false;
-      hack.adapter.tagStatus(hack.lib.active);
-      hack.tag.addClass('loaded');
+      hack.adapter.tagStatus(status);
+      hack.tags.addClass('loaded');
      };
 
     $.ajax(url, {

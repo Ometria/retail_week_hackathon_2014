@@ -4,11 +4,14 @@
 hack.lib = hack.lib || {};
 
 hack.lib.button = {
-  stash: function(event){
+  stash: function(e){
     // Toggle the 'stashed' class on the button
-    event.data.tag.addClass('active');
+    e.data.tag.addClass('active');
 
-    event.data.tag.tooltipster('show');
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+    // event.data.tag.tooltipster('show');
   },
   content: function(origin, next){
     // Get iFrame URL

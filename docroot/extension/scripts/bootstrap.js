@@ -7,20 +7,20 @@ hack.bootstrap = function(){
   hack.adapter.applyTag();
 
   // Initialize the popover
-  $(hack.tag).tooltipster({
-    content: '',
-    // setting a same value to minWidth and maxWidth will result in a fixed width
-    minWidth: 425,
-    maxWidth: 425,
-    trigger: 'click',
-    // positionTracker: true,
-    interactive: true,
-    position: 'top-right',
-    offsetX: -hack.tag.width(),
-    functionBefore: hack.lib.button.content
-  });
+  hack.tags.each(function(){
+    var tag = $(this);
 
-  hack.tag.click(function(){
-    $(hack.tag).tooltipster('show');
+    tag.tooltipster({
+      content: '',
+      // setting a same value to minWidth and maxWidth will result in a fixed width
+      minWidth: 425,
+      maxWidth: 425,
+      trigger: 'click',
+      positionTracker: true,
+      interactive: true,
+      position: 'top-right',
+      offsetX: -tag.width(),
+      functionBefore: hack.lib.button.content
+    });
   });
 };
