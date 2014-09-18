@@ -34,8 +34,8 @@ define(['jquery', 'controller', 'dispatcher', 'listModel', 'userModel'], functio
         clearTimeout(app.list.pollTimeout);
       // loading new data....
       app.list = new List(data.id);
-      app.list.poll();
       this.el.empty();
+      app.list.poll();
     };
 
     this.deactivate = function(){
