@@ -5,6 +5,7 @@ require('../_init.php');
 $pid = $_REQUEST['pid'];
 $retailer = $_REQUEST['retailer'];
 
+$is_popup = @$_GET['mode']=='popup';
 
 $list_id = @$_REQUEST['list'];
 if (!$list_id) $list_id='def_'.current_user();
@@ -41,7 +42,7 @@ if (!$product){
 $logo = 'http://www.johnlewis.com/assets/header/john-lewis-logo.gif';
 $product['logo'] = image_thumbnail_url($logo, '200x20', 'resize');
 
-$product_image = image_thumbnail_url(@$product['image_url'], '320x300', 'resizenp');
+$product_image = image_thumbnail_url(@$product['image_url'], '320x250', 'resizenp');
 $price_formatted = '£'.sprintf('%01.2f',$product['price']);
 
 $lists = lists_get_for_user(false);
@@ -70,7 +71,8 @@ if ($product) {
         'added_list_id'=>$list_id,
         'pid'=>$pid,
         'retailer'=>$retailer,
-        'list_ids'=> $list_ids
+        'list_ids'=> $list_ids,
+        'is_popup'=>$is_popup
         );
 
     show_template('add_product_popup', $data);
