@@ -8,7 +8,7 @@ define(['jquery'], function($){
         els.each(function(i, el){
           var $el = $(el);
           var data = $el.attr(attr.replace(/\[(.*)\]/, '$1'));
-          $el.on('click', function(){ console.log('click', data); app.navigate(data); });
+          $el.off('click').on('click', function(){ console.log('click', data); app.navigate(data); });
         });
       }
     },

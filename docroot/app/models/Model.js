@@ -9,6 +9,19 @@ define(['dispatcher', 'api'], function(Dispatcher, Api){
           payload: data
         });
       });
+    },
+    poll: function(){
+      var _this = this;
+      this.pollTimeout = setTimeout(function(){
+        Api.get(_this.url, _this.params, function(data){
+          Dispatcher.dispatch({
+            actionType: _this.modelId+'.GET',
+            payload: data
+          });
+          _this.poll();
+        });
+      }, 1000);
+
     }
   };
 });

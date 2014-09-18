@@ -21,18 +21,19 @@ define(['jquery', 'controller', 'dispatcher', 'listModel'], function($, Controll
     };
 
     this.activate = function(data){
-      if(!app.list || data.id !== app.list.id){
-        // loading new data....
-        app.list = new List(data.id);
-        app.list.fetch();
-        this.el.empty();
-      } else {
-        // I have the right data, just show
-        this.show();
-      }
+      if(app.list && app.list.pollTimeout)
+        clearTimeout(app.list.pollTimeout);
+      // loading new data....
+      app.list = new List(data.id);
+      app.list.poll();
+      this.el.empty();
     };
 
     this.deactivate = function(){
+      console.log('deact', app.list.pollTimeout);
+      if(app.list.pollTimeout)
+        clearTimeout(app.list.pollTimeout);
+
       $('body').css({'backgroundColor': ''});
     };
 

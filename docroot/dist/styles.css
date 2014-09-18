@@ -6166,6 +6166,25 @@ button.close {
 nav.navbar a.navbar-brand {
   padding: 10px 15px;
 }
+nav.navbar form {
+  margin-left: 5%;
+  width: 50%;
+}
+nav.navbar form .form-group {
+  width: 80%;
+}
+nav.navbar form .form-group input {
+  width: 100%;
+}
+nav.navbar .user {
+  display: inline-block;
+  line-height: 52px;
+}
+nav.navbar .user img {
+  margin-right: 3px;
+  border-radius: 100%;
+  width: 35px;
+}
 .list-preview .panel {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.085);
   border-color: #efefef;

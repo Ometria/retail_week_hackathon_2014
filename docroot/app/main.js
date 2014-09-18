@@ -1,4 +1,4 @@
-define(['jquery', './router', 'listsCollection'], function($, Router, ListsCollection){
+define(['jquery', './router', 'listsCollection', 'dispatcher'], function($, Router, ListsCollection, Dispatcher){
   var app = window.app = {
 
     // Blast Off and Run!
