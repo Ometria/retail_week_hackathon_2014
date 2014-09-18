@@ -1,3 +1,22 @@
 {{> _topbar }}
 
-<div>hello lists</div>
+<div class="container list">
+  <h2 class="list-title"> Test List1 </h2>
+  <div class="toolbar">
+    <span class="metric">
+        <i class="glyphicon glyphicon-shopping-cart"></i> -1
+    </span>
+    <span class="metric">
+      <i class="glyphicon glyphicon-user"></i> -1
+    </span>
+    <span class="metric">
+      <i class="glyphicon glyphicon-calendar"></i> 17 September 2014
+    </span>
+    <button class="btn btn-info pull-right"><i class="glyphicon glyphicon-user"></i> Share</button>
+  </div>
+  <div class="products">
+    {{#each products }}
+      {{> _product }}
+    {{/each}}
+  </div>
+</div>

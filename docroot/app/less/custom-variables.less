@@ -8,7 +8,7 @@
 //## Gray and brand colors for use across Bootstrap.
 
 @gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              lighten(#000, 20%);   // #333
+@gray-dark:              lighten(#000, 25%);   // #333
 @gray:                   lighten(#000, 33.5%); // #555
 @gray-light:             lighten(#000, 46.7%); // #777
 @gray-lighter:           lighten(#000, 93.5%); // #eee
@@ -25,7 +25,7 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               #fafafa;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 
@@ -39,7 +39,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -73,7 +73,7 @@
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-@icon-font-path:          "../fonts/";
+@icon-font-path:          "/static/fonts/";
 //** File name for all font files.
 @icon-font-name:          "glyphicons-halflings-regular";
 //** Element ID within SVG icon file.
@@ -343,7 +343,7 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-bg:                #fff;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links

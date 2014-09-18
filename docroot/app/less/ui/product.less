@@ -1,0 +1,48 @@
+#productModal {
+  .modal-dialog {
+    width:1000px;
+  }
+
+  .modal-body {
+    overflow:auto;
+
+    .picture {
+      width:25%;
+      float:left;
+      img { width:100%; }
+    }
+
+    .content {
+      width:65%;
+      float:left;
+      ul {
+        list-style:none;
+      }
+      .metric {
+        display: inline-block;
+        color:@gray-light;
+        width:150px;
+        text-align: center;
+      }
+    }
+
+    .right-section{
+      width:30%;
+      float:right;
+      margin-right: 10px;
+
+      img.map {
+        width:250px;
+        display: block;
+        margin:0 auto 10px auto;
+        border:10px solid lighten(@gray-lighter, 5%);
+      }
+      button {
+        width:80%;
+        margin:10px auto;
+        display: block;
+      }
+    }
+
+  }
+}

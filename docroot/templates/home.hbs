@@ -1,3 +1,7 @@
 {{> _topbar }}
 
-<div>hello home</div>
+<div class="container">
+  {{#each lists }}
+    {{> _list }}
+  {{/each}}
+</div>

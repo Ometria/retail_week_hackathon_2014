@@ -1,10 +1,13 @@
-define(['jquery', './router'], function($, Router){
+define(['jquery', './router', 'listsCollection'], function($, Router, ListsCollection){
   var app = window.app = {
 
     // Blast Off and Run!
     blastOff: function(){
       console.log('blastoff');
       this.root = $('[data-hook="app"]');
+
+      this.lists = new ListsCollection();
+
       this.router = new Router();
 
       // for API calls
