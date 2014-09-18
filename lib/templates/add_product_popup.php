@@ -98,7 +98,7 @@
         <ul class="lists">
             <?php foreach($lists as $list): ?>
             <li class="<?php if(array_contains($list_ids, $list['id'])): ?>selected<?php endif ?>">
-            <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>">
+            <a href="?retailer=<?php echo $retailer ?>&amp;pid=<?php echo $pid ?>&amp;list=<?php echo $list['id'] ?>&amp;mode=<?php echo @$_GET['mode'] ?>">
                 <?php if(array_contains($list_ids, $list['id'])): ?>
                     -
                 <?php else: ?>
