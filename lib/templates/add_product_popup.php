@@ -71,7 +71,7 @@
                 <?php echo $price_formatted ?>
                 <?php if(@$product['url']): ?>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" href="/list/<?php echo $added_list_id ?>">View stashes &raquo;</a>
+                <a class="btn btn-primary" href="/lists/<?php echo $added_list_id ?>">View stashes &raquo;</a>
                 <?php endif ?>
             </h4>
         </div>
