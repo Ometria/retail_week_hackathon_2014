@@ -1,0 +1,57 @@
+#productModal {
+  .modal-dialog {
+    width:1000px;
+  }
+
+  .modal-body {
+    overflow:auto;
+
+    h2 {
+      font-weight: 100;
+    }
+
+    .content {
+      width:65%;
+      float:left;
+      ul {
+        list-style:none;
+      }
+      img.product-image {
+        width:50%;
+        display: block;
+        margin:0px auto;
+      }
+      .metric {
+        display: inline-block;
+        color:@gray-light;
+        width:175px;
+        font-weight:300;
+        margin-bottom:30px;
+        margin-left:3px;
+        i {
+          color: @gray;
+          margin-right:6px;
+        }
+      }
+    }
+
+    .right-section{
+      width:30%;
+      float:right;
+      margin-right: 10px;
+
+      img.map {
+        width:250px;
+        display: block;
+        margin:0 auto 30px auto;
+        border:10px solid lighten(@gray-lighter, 5%);
+      }
+      button {
+        width:75%;
+        margin:10px auto;
+        display: block;
+      }
+    }
+
+  }
+}

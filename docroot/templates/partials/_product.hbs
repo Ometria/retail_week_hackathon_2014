@@ -1,0 +1,16 @@
+<div class="product{{#if @first}} big{{/if}}" data-index="{{@index}}">
+  <div class="product-body">
+    <img src="{{image_url}}" alt="">
+    <div class="iconset">
+    {{#if retail}}
+      <i class="glyphicon glyphicon-shopping-cart"></i>
+    {{else}}
+      <i class="glyphicon glyphicon-globe"></i> johnlewis.com/
+    {{/if}}
+      <span class="pull-right">£{{price}}</span>
+    </div>
+ </div>
+  <div class="info">
+    <p class="title">{{title}}</p>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div id="productModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>{{product.title}}</h2>
+
+        <div class="content">
+          <span class="metric">
+            <i class="glyphicon glyphicon-calendar"></i> 17 Setember 2014
+          </span>
+          <span class="metric">
+          {{#if product.retail}}
+            <i class="glyphicon glyphicon-shopping-cart"></i> In Store
+          {{else}}
+            <i class="glyphicon glyphicon-globe"></i> johnlewis.com/
+          {{/if}}
+          </span>
+          <span class="metric">
+            £{{product.price}}
+          </span>
+
+          <img src="{{product.image_url}}" alt="" class="product-image">
+
+        </div>
+        <div class="right-section">
+          <img src="/static/images/map.png" alt="" class="map">
+          <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-globe"></i> Buy online</button>
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-shopping-cart"></i> Find a store near me</button>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
